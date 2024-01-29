@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Conversion to Number</title>
+</head>
+<script type="text/javascript">
+
+    /*
+            强制类型转换
+            - 只将一个数据类型强制转换为其他数据类型
+            - 类型转换主要指， 将其他的数据类型转换为
+                String Number Boolean
+    
+    */
+
+    /*
+       将其他的数据类型转换为Number
+       方式一： 
+            - 使用Number()函数, 并将被转换的数据作为参数传递给函数
+                > 字符串 -- > 数字 
+                    1. 如果是纯数字字符串， 则直接将其转换为数字
+                    2. 如果字符串中有非数字的内容， 则转换为NaN
+                    3. 如果字符串是一个空串或者一个全是空格的字符串， 则转换为0
+                
+                > 布尔 -- > 数字
+                    1. true 转成 1
+                    2. false 转成 0
+
+                > null -- > 数字
+                    1. get 0 as result
+
+                > undefined -- > 数字
+                    1. get NaN as result
+
+
+       方式二：
+            - 这种方式专门用来对付字符串
+            - parseInt() 把一个字符串转换为一个整数
+            - parseFloat() 把一个字符串转换为一个浮点数
+   */
+
+
+    /************  方式一 ************/
+    var a = "123";
+    a = Number(a);
+
+    console.log(a); // output: 123
+    console.log(typeof a); // output: number
+
+
+    a = "abc";
+    a = Number(a);
+    console.log(a); // output: NaN
+    console.log(typeof a); // output: number
+
+
+    a = " ";
+    a = Number(a);
+    console.log(a); // output: 0
+    console.log(typeof a); // output: number
+
+
+
+    a = true;
+    a = Number(a);
+    console.log(a); // output: 1
+    console.log(typeof a); // output: number
+
+
+
+    a = false;
+    a = Number(a);
+    console.log(a); // output: 0
+    console.log(typeof a); // output: number
+
+
+    a = null
+    a = Number(a);
+
+    console.log(a); // output: 0
+    console.log(typeof a); // output: number
+
+
+
+    a = undefined
+    a = Number(a);
+
+    console.log(a); // output: NaN
+    console.log(typeof a); // output: number
+
+
+
+    /************  方式二 ************/
+    /*
+       parseInt() 可以将一个字符串中的有效整数内容取出来，
+       然后转换为Number
+    */
+    a = "123px";
+    a = parseInt(a);
+    console.log(a); // output: 123
+    console.log(typeof a); // output: number
+
+
+    a = "123.456px";
+    a = parseInt(a);
+    console.log(a); // output: 123
+    console.log(typeof a); // output: number
+
+    /*
+           如果对非String使用parseInt() 和 parseFloat(),
+           他会先将其转换为String, 然后再操作
+    */
+    a = true;
+    a = parseInt(a);
+    console.log(a); // output: NaN
+    console.log(typeof a); // output: number;
+
+
+    a = null;
+    a = parseInt(a);
+    console.log(a); // output: NaN
+    console.log(typeof a); // output: number;
+
+
+    a = 198.23
+    a = parseInt(a);
+    console.log(a); // output: 198
+    console.log(typeof a); // output: number;
+
+
+    a = 198.73
+    a = parseInt(a);
+    console.log(a); // output: 198
+    console.log(typeof a); // output: number;
+
+    /*
+       parseFloat() 可以将一个字符串中的有效浮点数内容取出来，
+       然后转换为Number
+    */
+    a = "123.456px";
+    a = parseFloat(a);
+    console.log(a); // output: 123.456
+    console.log(typeof a); // output: number
+
+</script>
+
+<body>
+
+</body>
+
+</html>

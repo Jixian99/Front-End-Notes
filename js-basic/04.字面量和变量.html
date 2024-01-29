@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字面量和变量</title>
+    <script type="text/javascript">
+        /*
+        The JavaScript syntax defines two types of values:
+
+        - Fixed values
+        - Variable values
+        */
+
+        /*
+            Fixed values are called Literals.
+            字面量， 都是一些不可改变的值，
+            比如： 1 2 3 4 5 "hello",
+            字面量都是可以直接使用， 但是我们一般都不会直接使用字面量
+
+            12312378961629
+        */
+
+        /*
+            Variable values are called Variables.
+            In a programming language, variables are used to store data values.
+            JavaScript uses the keywords var, let and const to declare variables.
+            An equal sign is used to assign values to variables.
+
+            变量：
+            变量可以用来保存字面量， 而且变量的值是可以任意改变的，
+            变量更加方便我们使用， 所以在开发中都是通过变量去保存一个字面量，
+            而且很少直接使用字面量
+        */
+
+        /*
+            声明变量：
+            use var to declare the variable
+        */
+       // A variable declared without a value will have the value undefined
+        var a;
+
+        // 为变量赋值 assign value to variable
+        a = 123;
+
+        // 声明和赋值同时进行 declaration and assignment 
+        var b = 123;
+
+
+        /*
+        When to Use var, let, or const?
+            1. Always declare variables
+
+            2. Always use const if the value should not be changed
+
+            3. Always use const if the type should not be changed (Arrays and Objects)
+
+            4. Only use let if you can't use const
+
+            5. Only use var if you MUST support old browsers.
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

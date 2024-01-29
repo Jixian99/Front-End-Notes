@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+
+
+        /**
+         * 
+         *  JSON
+         *  - JS中的对象只有JS自己认识, 其他的语言都不认识
+         *  - JSON就是特殊格式的字符串，可以被任意语言所识别，
+         *      并且可以转换为任意语言中的对象, 在开发中用于数据的交互
+         *  - JavaScript Object Notation (JS对象表示法)
+         *  - JSON与JS对象格式相同但是属性和值必须加引号
+         *  - JSON分类：
+         *      1. 对象  {}
+         *      2. 数组  []
+         * 
+         *  - JSON中允许使用的值：
+         *      1. 数字
+         *      2. 字符串
+         *      3. 布尔值
+         *      4. null
+         *      5. 对象
+         *      6. 数组
+         * 
+        */
+
+        // 创建一个对象
+        // 允许的值：1字符串2数值3布尔值4null5对象6数组
+        var obj = '{"name":"test","age":18,"gender":"男"}';
+        var arr = '[1,2,3,"hello",true]';
+
+
+        var obj2 = '{"arr":[1,2,3]}';
+        var arr2 = '[{"name":"test","age":18,"gender":"男"}, {"name":"test","age":18,"gender":"男"}]';
+
+        /**
+         *  
+         *  将json转换为js对象
+         *  JSON工具类
+         *  这个对象可以帮助我们将一个JSON转换为JS对象, 也可以将一个JS对象转换为JSON
+         * 
+        */
+        console.log(JSON)
+
+
+        /**
+         *  JSON ---\> js对象
+         *  JSON.parse()将JSON字符串转换为js对象并返回
+         */
+
+        var a = JSON.parse(obj)
+        console.log(a) // {name: 'test', age: 18, gender: '男'}
+        console.log(a.gender) // 男
+
+
+
+        var obj3 = { name: "孙悟空", age: 28, gender: "男" };
+
+        /**
+         *  js对象 ---\> JSON
+         *  JSON.stringify()将js对象转化为JSON
+         *  使用js对象作为参数，返回JSON
+         * 
+        */
+        var str = JSON.stringify(obj3)
+        console.log(str); // {"name":"孙悟空","age":28,"gender":"男"}
+
+
+        /**
+         * 
+         *  兼容IE7及以下使用eval来代替不能使用的JSON.parse(),或者引入JSON2库
+         * 
+         *  eval()
+         *      - 可以执行(execute)一段字符串形式的代码并返回结果
+         * 
+         *  如果eval() 执行的字符串含有{},它会将{}当成代码块
+         *  如果不希望当成代码块解析，需要在字符串前后加()
+         * 
+        */
+
+        var json = '{"name":"test","age":18,"gender":"男"}';
+        var str2 = "console.log('hello')";
+        eval(str2); // hello
+        console.log(eval("(" + json + ")")) // {name: 'test', age: 18, gender: '男'}
+        // eval()性能较差，并且有安全隐患，在开发中尽量不要使用eval()
+
+
+
+    </script>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+
+
+</body>
+
+</html>

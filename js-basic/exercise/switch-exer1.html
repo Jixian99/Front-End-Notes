@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch语句练习1</title>
+    <script type="text/javascript">
+        /**
+         * 
+         * 对于成绩大于60分的, 输出"合格", 低于60分, 输出"不合格"
+         * 
+         * 6x / 10 = 6
+         * 7x / 10 = 7
+         * 8x / 10 = 8
+         * 9x / 10 = 9
+         * 100 / 10 = 10
+         * 
+        */
+
+        var score = prompt("请输入成绩：");
+
+        // 判断值是否合法
+        if (score > 100 || score < 0 || isNaN(score)) {
+            alert("Invalid Input");
+        } else {
+
+            // 根据score的值来决定输出
+            // switch (score > 60) {
+            //     case true:
+            //         alert("合格");
+            //         break;
+
+            //     case false:
+            //         alert("不合格");
+            //         break;
+            // }
+
+
+            // switch (parseInt(score / 10)) {
+            //     case 10:
+            //     case 9:
+            //     case 8:
+            //     case 7:
+            //     case 6:
+            //         alert("合格");
+            //         break;
+            //     default:
+            //         alert("不合格");
+            //         break;
+            // }
+
+
+            // switch (true) {
+            //     case score >= 60:
+            //         alert("合格");
+            //         break;
+            //     default:
+            //         alert("不合格");
+            //         break;
+
+            // }
+        }
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邮件的正则</title>
+    <script type="text/javascript">
+        /**
+         * 
+         *  电子邮件
+         *    hello@abc.com.cn
+         * 
+         *  任意字母数字下划线 .任意字母数字下划线 @ 任意字母数字 .任意字母(2-5位)
+         *  
+         * 
+         * 
+         * 
+        */
+
+        var reg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+
+        var email = "abc@abc.com"; // true
+        var email = "abcabc.com"; // false
+        var email = "abc@abc.com.123"; // false
+        var email = "abc.hello@163.com"; // true
+
+
+        console.log(reg.test(email));
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

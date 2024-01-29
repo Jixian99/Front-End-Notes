@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Conversion to String</title>
+</head>
+<script type="text/javascript">
+    /*
+        强制类型转换
+        - 只将一个数据类型强制转换为其他数据类型
+        - 类型转换主要指， 将其他的数据类型转换为
+            String  Number Boolean
+
+    */
+
+
+    /*
+        将其他的数据类型转换为String
+        方式一： 
+            - 调用被转换数据类型的toString()方法
+            - 该方法不会影响原变量， 它会将转换的结果返回
+            - 注意： null 和 undefined 这两个值没有toString()方法，会报错
+
+
+        方式二：
+            - 调用String()函数, 并将被转换的数据作为参数传递给函数
+            - 使用String()函数做强制类型转换时， 
+                > 对于Number 和 Boolean实际上就是调用的toString()方法
+                > 对于null 和 undefined , 就不会调用toString方法
+                    ~ 将null 直接转换为"null"
+                    ~ 将undefined 直接转换为"undefined"
+    */
+
+
+    /************  方式一 ************/
+    var a = 123;
+    console.log(typeof a); // output: number
+
+    a.toString();
+    console.log(typeof a); // output: number
+
+    var b = a.toString();
+    console.log(typeof b); // output: string
+
+    a = a.toString();
+    console.log(typeof a); // output: string
+
+    // a = null
+    // a = a.toString();
+    // console.log(typeof a); // output: Uncaught TypeError: Cannot read properties of null (reading 'toString')
+
+    // a = undefined
+    // a = a.toString();
+    // console.log(typeof a); // output: Uncaught TypeError: Cannot read properties of undefined (reading 'toString')
+
+
+
+    /************  方式二 ************/
+    a = 123;
+
+    a = String(a);
+
+    console.log(a); // output: "123"
+    console.log(typeof a); // output: string
+
+
+
+    a = null
+    a = String(a);
+
+    console.log(a); // output: "null"
+    console.log(typeof a); // output: string
+
+
+
+    a = undefined
+    a = String(a);
+
+    console.log(a); // output: "undefined"
+    console.log(typeof a); // output: string
+
+</script>
+
+<body>
+
+</body>
+
+</html>

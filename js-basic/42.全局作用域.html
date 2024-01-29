@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全局作用域</title>
+    <script type="text/javascript">
+
+        /**
+         *  
+         *  作用域
+         *  - 作用域指一个变量的作用的范围
+         *  - 在JS中一共有两种作用域:
+         *      1. 全局作用域
+         *         - 直接编写在script标签中的JS代码, 都在全局作用域
+         *         - 全局作用域在页面打开时创建, 在页面关闭时销毁
+         *         - 在全局作用域中, 有一个人全局对象window, 
+         *              它代表的是一个浏览器的窗口, 它由浏览器创建, 我们可以直接使用 
+         *         - 在全局作用域中,
+         *              创建的变量都会作为window对象的属性保存 
+         *              创建的函数都会作为window对象的方法保存 
+         *         - 全局作用域中的变量都是全局变量，
+         *              在页面的任意的部分都可以访问得到
+         * 
+         *      2. 函数作用域
+         * 
+         * 
+         *  Scope determines the accessibility (visibility) of variables.
+         *  JavaScript variables have 3 types of scope:
+         *      1. Block scope
+         *      2. Function scope
+         *      3. Global scope
+         * 
+         * 
+         *  Before ES6 (2015), JavaScript variables had only Global Scope and Function Scope.
+         *  ES6 introduced two important new JavaScript keywords: let and const.
+         *  These two keywords provide Block Scope in JavaScript.
+        */
+
+        function func() {
+            var a = 123
+        };
+
+        func();
+
+
+        // a is function scope , cannot access it here
+        // console.log(a); // Uncaught ReferenceError: a is not defined
+
+        //============================================================================
+
+        var a = 10;
+        var b = 20;
+        var c = "hello";
+
+        console.log(window.a); // 10
+        console.log(window.b); // 20
+        console.log(window.c); // hello
+
+
+        //============================================================================
+        function func2() {
+            console.log("func2函数");
+        }
+
+
+        // func2() same as window.func2();
+        // func2();
+        // window.func2();
+
+        // these two method/ function is the same
+        // alert("hello");
+        // window.alert("hello");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logical Operators</title>
+    <script type="text/javascript">
+
+        /**
+         * 
+         * JS中为我们提供了三种逻辑运算符
+         *  ！ 非 （logical not）
+         *      - !可以用来对一个值进行非运算
+         *      - 所谓非运算就是值对一个布尔值进行取反操作
+         *          ~ true 变 false;
+         *          ~ false 变 true;
+         *      - 如果对一个值进行两次取反， 它不会变化
+         *      - 如果对一个非布尔值进行元素， 则会将其转换为布尔值， 然后再取反
+         *          ~ 所以我们可以利用该特点， 来将一个其他的数据类型转换为布尔值
+         *          ~ 可以为一个任意数据类型取两次反， 来将其转换为布尔值， 原理和Boolean()函数一样 （example: !!a）
+         * 
+         *  && 与 （logical and）
+         *      - && 可以对符号两侧的值进行与运算并返回结果
+         *      - 运算规则
+         *          ~ 两个值中只要有一个值为false就返回false
+         *          ~ 只有两个值为true时， 才会返回true
+         *      - JS中的“与”属于短路的与， 如果第一个值为false, 则不会再看第二个值
+         * 
+         *  || 或  (logical or）
+         *      - || 可以对符号两侧的值进行或运算并返回结果
+         *      - 运算规则
+         *          ~ 两个值中只要有一个值为true就返回true
+         *          ~ 只有两个值为false时， 才会返回false
+         *      - JS中的“或”属于短路的或， 如果第一个值为true, 则不会再看第二个值
+         * 
+        */
+
+
+        var a = true;
+
+        // 对a进行非运算
+        // a = !a;  // output: false;
+
+        a = !!a;  // output: true;
+
+        console.log("a=" + a);
+
+
+        var b = 10;
+        b = !b; // b的值是10， 转换为boolean时， 值是true, 经过 ！后， 变成false
+
+        console.log("b=" + b);
+
+
+        // 如果两个值都是true, 则返回true
+        var result = true && true; // output: true
+
+        // 只要有一个false, 就返回false
+        result = true && false; // output: false
+        result = false && true; // output: false
+        result = false && false; // output: false
+
+        console.log(result);
+
+
+        //第一个值为true, 会检查第二个值
+        // true && alert("看我出不出来！");
+
+        //第一个值为false, 不会检查第二个值
+        false && alert("看我出不出来！");
+
+
+
+
+
+        // 如果两个值都是false, 则返回false
+        var result = false || false; // output: false
+
+        // 只要有一个true, 就返回true
+        result = true || false; // output: true
+        result = false || true; // output: true
+        result = true || true; // output: true
+
+        console.log(result);
+
+
+         //第一个值为false, 会检查第二个值
+        // false || alert("看我出不出来！");
+
+        //第一个值为true, 不会检查第二个值
+        true || alert("看我出不出来！");
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+    <script type="text/javascript">
+        /**
+         * 
+         *  Math
+         *  - Math和其他的对象不同, 它不是一个构造函数,
+         *      它属于一个工具类不用创建对象, 它里边封装了数学运算相关的属性和方法
+         *  - 比如:
+         *      属性(properties):
+         *          - Math.PI 表示圆周率
+         *          - Math.SQRT2    // returns the square root of 2
+         * 
+         *      方法(method):
+         *      - Math.round(x)
+         *      - Math.floor(x)
+         * 
+         * 
+         *  Unlike other objects, the Math object has no constructor.
+         *  The Math object is static.
+         *  All methods and properties can be used without creating a Math object first.
+         * 
+         * 
+        */
+
+        console.log(Math.PI); // 3.141592653589793
+
+
+        /**
+         * 
+         *  abs()可以用来计算一个数的绝对值
+         * 
+        */
+        console.log(Math.abs(1)); // 1
+        console.log(Math.abs(-1)); // 1
+
+
+
+
+        /**
+         * 
+         *   Math.ceil()
+         *   - 可以对一个数进行向上取整, 小数位只要有值就自动进位1
+         * 
+        */
+        console.log(Math.ceil(1.0)); // 1
+        console.log(Math.ceil(1.1)); // 2
+        console.log(Math.ceil(1.5)); // 2
+        console.log(Math.ceil(1.4)); // 2
+
+
+        /**
+         * 
+         *  Math.floor()
+         *  - 可以对一个数进行向下取整, 小数部分会被舍掉
+         * 
+        */
+        console.log(Math.floor(1.0)); // 1
+        console.log(Math.floor(1.1)); // 1
+        console.log(Math.floor(1.6)); // 1
+        console.log(Math.floor(1.99)); // 1
+
+
+        /**
+         *  
+         *  Math.round()
+         *  - 可以对一个数进行四舍五入取整
+         * 
+        */
+        console.log(Math.round(1.0)); // 1
+        console.log(Math.round(1.1)); // 1
+        console.log(Math.round(1.6)); // 2
+        console.log(Math.round(1.99)); // 2
+
+
+
+
+        /**
+         * 
+         *  Math.random()
+         *  - 可以用来生成一个0-1之间的随机数(不会出现0和1)
+         *  - 生成一个0-x之间的随机数
+         *      Math.round(Math.random()*x)
+         * 
+         *  - 生成一个x-y之间的随机数
+         *      Math.round(Math.random()*(y-x)) + x;
+         * 
+        */
+        // 0.27088323120906144
+        // 0.4926304349512671
+        // 0.09610634493302839
+        console.log(Math.random());
+
+
+        // for (let i = 0; i < 10; i++) {
+        //     // 生成一个0-10的随机数
+        //     // console.log(Math.round(Math.random() * 10));
+
+        //     // 生成一个1-10
+        //     // console.log(Math.round(Math.random() * 9) + 1);
+
+        //     //  生成一个2-10
+        //     console.log(Math.round(Math.random() * 8) + 2);
+        // }
+
+
+
+        /**
+         * 
+         *  Math.max()
+         *  - 可以获取多个数中的最大值
+         *  
+         * 
+        */
+        var max = Math.max(10, 20, 30);
+        console.log(max); // 30
+
+
+
+        /**
+        * 
+        *  Math.min()
+        *  - 可以获取多个数中的最小值
+        *  
+        * 
+       */
+        var min = Math.min(10, 20, 30);
+        console.log(min); // 10
+
+
+
+
+        /**
+         * 
+         *  Math.pow(x, y)
+         *  - 返回x的y次幂 (x to the power of y )
+         * 
+         * 
+        */
+
+        // 2 ** 3  ,  2*2*2
+        var pow = Math.pow(2, 3); 
+        console.log(pow); // 8
+
+
+
+        /**
+         * 
+         *  Math.sqrt()
+         *  - 用于对一个数进行开放运算
+         * 
+        */
+        console.log(Math.sqrt(4)); // 2
+
+
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

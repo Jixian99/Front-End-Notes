@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的练习</title>
+    <script type="text/javascript">
+
+        /**
+         * 
+         *  定义一个函数, 判断一个数字是否是偶数, 如果是返回true, 否则返回false
+         * 
+        */
+
+
+        function isEven(num) {
+            // if (num % 2 == 0) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
+
+            return num % 2 == 0;
+        }
+
+        var result = isEven(2);
+
+        console.log(result);
+
+
+
+        /**
+        * 
+        *  定义一个函数, 可以根据半径计算一个圆的面积, 并返回计算结果
+        *  3.14*r*r
+        */
+
+
+        function area(r) {
+            return 3.14 * r * r;
+        }
+
+        var result = area(10);
+
+        console.log(result);
+
+
+
+
+
+        /**
+          * 
+          *  创建一个函数, 可以在控制台中输出一个人的信息
+          *    可以输出人的name age gender address
+         */
+        /**
+         *  实参可以是任意的数据类型, 也可以是一个对象
+         *      当我们的参数过多时, 可以将参数封装到一个对象, 然后通过对象传递
+         * 
+        */
+
+        function person(obj) {
+            console.log("我是" + obj.name + ", 今年我" + obj.age + "岁了, 我是一个" + obj.gender + "人, 我住在" + obj.address);
+        }
+
+        // person("孙悟空", 18, "男", "花果山");
+
+        var personInfo = {
+            name: "孙悟空",
+            age: 18,
+            gender: "男",
+            address: "花果山"
+        };
+
+        person(personInfo);
+
+
+
+
+        /**
+         * 
+         *  实参可以是一个对象, 也可以是一个函数
+         * 
+         * 
+        */
+
+        function func(a) {
+            console.log(a);
+            // a(personInfo);
+        }
+
+        func(person);
+
+
+
+        func(function () { alert("hello"); });
+
+
+        /**
+         * 
+         *  area() ==> 
+         *  1. 调用函数
+         *  2. 相当于使用的函数的返回值
+         * 
+         *  area ==> 
+         *  1. 函数对象
+         *  2. 相当于直接使用函数对象
+         * 
+         * 
+        */
+
+        /**
+         *  output: ƒ area(r) {
+                    return 3.14 * r * r;
+            }
+        */
+        func(area);
+
+
+        // output: NaN
+        func(area());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

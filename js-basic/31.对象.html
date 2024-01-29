@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+    <script type="text/javascript">
+        /*
+           JavaScript has 8 Datatypes
+               1. String
+               2. Number
+               3. Bigint
+               4. Boolean
+               5. Undefined
+               6. Null
+               7. Symbol
+               8. Object
+
+           The object data type can contain:
+               1. An object
+               2. An array
+               3. A date
+
+
+
+           基本数据类型都是单一的值"hello" 123 true
+               值和值之间没有任何联系
+
+           在JS中来表示一个人的信息(name gender age),
+               var name = "孙悟空";
+               var gender = "男";
+               var age = 18;
+
+           如果使用基本数据类型的数据, 我们所创建的变量都是独立, 不能成为一个整体。
+
+
+           对象属于一种复合的数据类型, 在对象中可以保存多个不同数据类型的属性
+
+           The name:values pairs in JavaScript objects are called properties
+
+           对象的分类：
+               1. 内建对象
+                   - 由ES标准中定义的对象, 在任何的ES的实现中都可以使用
+                   - 比如：Math String Number Boolean Function Object
+
+               2. 宿主对象
+                   - 由JS的运行环境提供的对象, 目前来讲主要指有由浏览器提供的对象
+                   - 比如 BOM DOM
+
+               3. 自建对象
+                   - 有开发人员自己创建的对象
+       */
+
+
+        // 创建对象
+        /**
+         * 
+         *  使用new关键字调用的函数， 是构造函数-constructor
+         *      constructor是专门用来创建对象的函数
+         * 
+         *  使用typeof检查一个对象时, 会返回object
+         * 
+        */
+        var obj = new Object();
+
+
+        /**
+         * 
+         *  在对象中保存的值称为属性
+         *  向对象添加属性
+         *      语法: 对象.属性名 = 属性值;
+         *            objectName.propertyName/ objectName["propertyName"]
+         * 
+         * 
+        */
+
+        // 向obj中添加一个name属性
+        obj.name = "孙悟空";
+
+        // 向obj中添加一个gender属性
+        obj.gender = "男";
+
+        // 向obj中添加一个age属性
+        obj.age = 18;
+
+
+        /**
+         * 
+         *  读取对象中的属性
+         *      语法：对象.属性名
+         * 
+        */
+
+        console.log(obj.name); //  "孙悟空"
+        console.log(obj.gender); //  "男"
+        console.log(obj.color); //  "undefined"
+
+
+        /**
+         * 
+         *  修改对象的属性值
+         *      语法：对象.属性名 = 新值
+         * 
+        */
+        obj.name = "tom";
+        console.log(obj.name);
+
+
+        /**
+         * 
+         *  删除对象的属性
+         *      语法： delete 对象.属性名
+        */
+
+        delete obj.name;
+
+        console.log(obj);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

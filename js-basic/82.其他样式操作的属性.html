@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其他样式操作的属性</title>
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            // 获取box1
+            var box1 = document.getElementById("box1");
+
+            // 为按钮绑定单击响应函数
+            var btn01 = document.getElementById("btn01");
+
+            // 获取box4
+            var box4 = document.getElementById("box4");
+
+            btn01.onclick = function () {
+                /**
+                 *  
+                 *  clientWidth
+                 *  clientHeight
+                 *  - 这两个属性可以获取元素的可见宽度和高度
+                 *  - 这些属性都是不带px的, 返回都是一个数字, 可以直接进行计算
+                 *  - 会获取元素的宽度和高度, 包括内容区和内边距 (不包括border)
+                 *  - 这些属性都是只读的, 不能修改
+                 * 
+                */
+
+                console.log(box1.clientWidth); // 100
+
+                console.log(box1.clientHeight); // 100
+
+
+                // after add padding
+                console.log(box1.clientWidth); // 120
+
+                console.log(box1.clientHeight); // 120
+
+
+                /**
+                 * 
+                 *  offsetWidth
+                 *  offsetHeight
+                 *  - 获取元素的整个宽度和高度, 包括内容区, 内边距和边框
+                 * 
+                */
+                console.log(box1.offsetWidth); // 139
+
+
+
+
+                /**
+                 * 
+                 * offsetParent
+                 * - 可以用来获取当前元素的定位父元素
+                 * - 会获取到离当前元素最近的开启了定位的祖先元素
+                 *      如果所有祖先元素都没有开启定位, 则返回body
+                */
+                var op = box1.offsetParent; // 返回body element
+                console.log(op);
+
+
+                // after assign "position : relative" to box2
+                var op = box1.offsetParent; // 返回box2 element
+                console.log(op);
+
+
+
+
+                /**
+                 * 
+                 *  offsetLeft
+                 *  - 当前元素相对于其定位父元素的水平偏移量
+                 * 
+                 *  offsetTop
+                 *  - 当前元素相对于其定位父元素的垂直偏移量
+                 * 
+                */
+
+                // when body is the offset parent
+                // the box1 的左边离body 8px
+                console.log(box1.offsetLeft); // 8
+
+
+                // when box2 is pffset parent
+                console.log(box1.offsetLeft); // 100
+
+
+
+
+                /**
+                 * 
+                 *  scrollWidth()
+                 *  scrollHeight()
+                 *  - 可以获取元素整个滚动区域的宽度和高度
+                 *  
+                 * 
+                */
+                console.log(box4.scrollHeight); // 600 
+                console.log(box4.scrollWidth); // 450
+
+
+
+                /**
+                 * 
+                 *  scrollLeft()
+                 *  - 可以获取水平滚动条滚动的距离
+                 *  
+                 *  scrollTop()
+                 *  - 可以获取垂直滚动条滚动的距离
+                 * 
+                */
+                console.log(box4.scrollLeft);
+                console.log(box4.scrollTop);
+
+
+                console.log(box4.clientHeight); // 283
+                console.log(box4.clientWidth); // 183
+
+                // 当满足scrollHeight - scrollTop == clientHeight
+                // 说明垂直滚动条滚动到底了
+                console.log(box4.scrollHeight - box4.scrollTop); //600
+
+
+
+                // 当满足scrollWidth - scrollLeft == clientWidth
+                // 说明水平滚动条滚动到底了
+                console.log(box4.scrollWidth - box4.scrollLeft); //600
+
+
+            };
+        };
+
+    </script>
+    <style type="text/css">
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            padding: 10px;
+            border: 10px solid yellow;
+        }
+
+        #box2 {
+            padding: 100px;
+            background-color: #bfa;
+        }
+
+        #box4 {
+            width: 200px;
+            height: 300px;
+            background-color: #bfa;
+            overflow: auto;
+        }
+
+        #box5 {
+            width: 450px;
+            height: 600px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="btn01">Click Me</button>
+    <button id="btn02">Click Me Button 2</button>
+    <br /><br />
+
+    <div id="box4">
+        <div id="box5"></div>
+    </div>
+
+    <br /><br />
+
+    <div id="box3">
+        <div id="box2" style="position: relative;">
+            <div id="box1"></div>
+        </div>
+    </div>
+
+
+    <!-- <div id="box2">
+        <div id="box1"></div>
+    </div> -->
+</body>
+
+</html>

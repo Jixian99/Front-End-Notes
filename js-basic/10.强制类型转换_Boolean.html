@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Conversion to Boolean</title>
+</head>
+<script type="text/javascript">
+    /*
+            强制类型转换
+            - 只将一个数据类型强制转换为其他数据类型
+            - 类型转换主要指， 将其他的数据类型转换为
+                String Number Boolean
+    
+    */
+
+    /*
+       将其他的数据类型转换为Boolean,
+
+        方式一： 
+            - 使用Boolean()函数, 并将被转换的数据作为参数传递给函数
+                > number -- > boolean 
+                    1. 除了0和NaN， 其余的都是true
+                
+                > string -- > boolean
+                    1. 除了空串， 其余的都是true
+
+                > null -- > boolean
+                    1. 转换为false
+
+                > undefined -- > boolean
+                    1. 转换为false
+
+                > object -- > boolean
+                    1. 转换为true
+
+        方式二：
+            - 为任意的数据类型做两次非运算， 即可将其转换为布尔值
+            - 例子： 
+                var a = "hello";
+                a = !!a; // output: true
+    */
+
+    var a = 123; // output: true
+    a = -123; // output: true
+    a = 0; // output: false
+    a = Infinity // output: true
+    a = NaN; // output: false
+    a = Boolean(a);
+
+
+
+    a = "hello"; // output: true
+    a = "true"; // output: true
+    a = "false"; // output: true
+    a = ""; // output: false
+    a = " "; // output: true
+    a = Boolean(a);
+
+
+    a = null; // output: false
+    a = Boolean(a);
+
+    a = undefined; // output: false
+    a = Boolean(a);
+
+    console.log(a); 
+    console.log(typeof a); // output: boolean
+
+
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>

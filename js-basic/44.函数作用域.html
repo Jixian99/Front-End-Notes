@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数作用域</title>
+    <script type="text/javascript">
+
+        /**
+         *  
+         *  作用域
+         *  - 作用域指一个变量的作用的范围
+         *  - 在JS中一共有两种作用域:
+         *      1. 全局作用域
+         *         - 直接编写在script标签中的JS代码, 都在全局作用域
+         *         - 全局作用域在页面打开时创建, 在页面关闭时销毁
+         *         - 在全局作用域中, 有一个人全局对象window, 
+         *              它代表的是一个浏览器的窗口, 它由浏览器创建, 我们可以直接使用 
+         *         - 在全局作用域中,
+         *              创建的变量都会作为window对象的属性保存 
+         *              创建的函数都会作为window对象的方法保存 
+         *         - 全局作用域中的变量都是全局变量，
+         *              在页面的任意的部分都可以访问得到
+         * 
+         *      2. 函数作用域
+         *         - 调用函数时创建函数作用域, 函数执行完毕以后, 函数作用域销毁
+         *         - 每调用一次函数就会创建一个新的函数作用域, 他们之间是互相独立的
+         *         - 在函数作用域中可以访问到全局作用域的变量,  
+         *           在全局作用域中无法访问到函数作用域的变量
+         *         - 当在函数作用域操作一个变量时, 它会先在自身作用域中寻找, 
+         *              如果有就直接使用, 
+         *              如果没有就向上一级作用域中寻找, 直到找到全局作用域,
+         *              如果全局作用域中依然没有找到, 则会报错ReferenceError
+         *         - 在函数中要访问全局变量可以使用window对象
+         * 
+         * 
+         *  Scope determines the accessibility (visibility) of variables.
+         *  JavaScript variables have 3 types of scope:
+         *      1. Block scope
+         *      2. Function scope
+         *      3. Global scope
+         * 
+         * 
+         *  Before ES6 (2015), JavaScript variables had only Global Scope and Function Scope.
+         *  ES6 introduced two important new JavaScript keywords: let and const.
+         *  These two keywords provide Block Scope in JavaScript.
+         * 
+         *  ！！！
+         *  Automatically Global
+         *  If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable.
+         *  This code example will declare a global variable carName, even if the value is assigned inside a function.
+         *      Example
+         *          myFunction();
+         *          // code here can use carName
+         *          
+         *          function myFunction() {
+         *                  carName = "Volvo";
+         *          }
+         * 
+         *  ！！！
+         *  Strict Mode
+         *  All modern browsers support running JavaScript in "Strict Mode".
+         *  You will learn more about how to use strict mode in a later chapter of this tutorial.
+         *  In "Strict Mode", undeclared variables are not automatically global.
+         * 
+         * 
+         * 
+        */
+
+        //创建一个变量
+        var a = 10;
+
+        function func() {
+
+
+            var a = "variable inside the function"
+            var b = 20;
+
+            console.log(a); //"variable inside the function"
+
+            // func2 现在自己的作用域里面找a, 如果没有就会往上一级找a
+            function func2() {
+                console.log(a);  //"variable inside the function"
+                console.log(window.a);
+            };
+
+            func2();
+        };
+
+        // 一共创建了三个函数作用域
+        func();
+        func();
+        func();
+
+        // the variable declare in the function scope cannot be access by the global scope
+        // console.log(b);// Uncaught ReferenceError: b is not defined
+
+        console.log(a); //10
+
+
+        //============================================================================
+
+        /**
+         * 
+         *  在函数作用域也有声明提前的特性,
+         *      使用var关键字声明的变量, 会在函数中所有的代码执行之前被声明
+         *      函数声明也会在函数中所有的代码执行之前
+         *    
+         *  下面的代码等于
+         * 
+         * 
+         *      var a;
+         *      
+         *      console.log(a); //undefined
+         * 
+         *      a = 35;
+         *  
+         *      console.log(a); // 35
+         *      
+         * 
+         * 
+        */
+        function func3() {
+            func4();
+
+            console.log(a); //undefined
+
+            var a = 35;
+
+            console.log(a); // 35
+
+            function func4() {
+                alert("i am func4");
+            }
+        }
+
+        func3();
+
+
+        var c = 33;
+
+
+        /**
+         * 
+         *  ！！！  for unstrict mode
+         *  在函数中, 不适用var 声明的变量都会成为全局变量
+         * 
+        */
+        function func5() {
+            //==============================
+            // console.log(c); // undefined
+            // var c = 10;
+
+
+            //==============================
+            // 这边的console.log(c); 在func5()的作用域里面没有找到c, 所以会往上找, 找到global scope 里面的 var c = 33;
+            console.log(c); // 33
+
+            // 没有写var, c 变成了 window.c , 变成了global variable
+            c = 10;
+
+            // 没有使用var 关键字,则会设置为全局变量
+            d = 100;
+        }
+
+        func5();
+
+        // 在全局输出c
+        console.log(c); // 10
+        console.log(d); // 100
+
+
+
+
+
+        //==============================
+        var e = 23;
+
+
+        /**
+         *  定义形参(parameter)就相当于在函数作用域中声明了变量
+         * 
+        */
+        function func6(e) {
+            alert(e);
+        }
+
+        func6(20); // pop up alert(20);
+        func6(); // pop up alert(undefined);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

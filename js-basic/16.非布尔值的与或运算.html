@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logical Operators</title>
+    <script type="text/javascript">
+        /**
+         * 
+         *  &&   ||   非布尔值的情况
+         *     - 对于非布尔值进行与或运算时，
+         *          ~ 会先将其转换为布尔值， 然后再运算， 并且返回原值
+         *     - 与运算：
+         *          ~ 如果第一个值为true, 则必然返回第二个值
+         *          ~ 如果第一个值为false, 则必然返回第一个值
+         * 
+         *     - 或运算：
+         *          ~ 如果第一个值为true, 则必然返回第一个值
+         *          ~ 如果第一个值为false, 则必然返回第二个值
+         * 
+        */
+
+        // true && true
+        // 与运算, 如果两个值都为true, 则返回后边的
+        var result = 1 && 2; // output: 2
+        result = 2 && 1; // output: 1
+
+
+        /***********************************************/
+        /*** 按照短路特点检查， 始终返回检查的最后一个值 ***/
+        /***********************************************/
+
+        // 与运算, 如果两个值有false, 则返回靠前的false
+        // false && true;
+        result = 0 && 2; // output: 0
+        result = 2 && 0; // output: 0
+
+        // 与运算中,只要遇到false, 就停止检查后面的值
+        // false && false
+        result = NaN && 0; // output: NaN
+        result = 0 && NaN; // output: 0
+
+
+
+
+        // true || true
+        // 或运算中, 如果第一个值为true, 则直接返回第一个值
+        result = 1 || 2; // output: 1
+
+
+        // 或运算中, 如果第一个值为false, 则直接返回第二个值
+        result = NaN || 1; // output: 1
+        result = NaN || 0; // output: 1
+
+        // false || true
+        result = "" || "hello";
+
+        console.log(result);
+
+ 
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

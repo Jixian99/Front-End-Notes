@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用工厂方法创建对象</title>
+    <script type="text/javascript">
+
+
+        /**
+         * 
+         * 创建一个对象
+         * 
+        */
+
+        /**
+         * 
+         *  以下创建对象的方法含许多重复性代码
+         * 
+        */
+        // var obj = {
+        //     name: "孙悟空",
+        //     age: 18,
+        //     gender: "男",
+        //     sayName: function () {
+        //         alert(this.name);
+        //     }
+        // };
+
+
+        // var obj2 = {
+        //     name: "猪八戒",
+        //     age: 28,
+        //     gender: "男",
+        //     sayName: function () {
+        //         alert(this.name);
+        //     }
+        // };
+
+
+        // var obj2 = {
+        //     name: "沙和尚",
+        //     age: 38,
+        //     gender: "男",
+        //     sayName: function () {
+        //         alert(this.name);
+        //     }
+        // };
+
+
+        //=========================================================
+
+        /**
+         * 
+         *  使用工厂方法创建对象
+         *      通过该方法可以大批量的创建对象
+         * 
+        */
+        function createPerson(name, age, gender) {
+            // 创建一个新对象
+            var obj = new Object();
+
+            // 向对象中添加属性
+            obj.name = name;
+            obj.age = age;
+            obj.gender = gender;
+            obj.sayName = function () {
+                alert(this.name);
+            }
+
+            // 将新的对象返回
+            return obj
+        };
+
+        /**
+         * 
+         *  用来创建狗的对象
+         * 
+        */
+        function createDog(name, age) {
+            // 创建一个新对象
+            var obj = new Object();
+
+            // 向对象中添加属性
+            obj.name = name;
+            obj.age = age;
+            obj.sayHello = function () {
+                alert("汪汪");
+            }
+
+            // 将新的对象返回
+            return obj
+        };
+
+        var obj2 = createPerson("猪八戒", 28, "男");
+        var obj3 = createPerson("沙和尚", 38, "男");
+        var obj4 = createPerson("白骨精", 48, "女");
+
+        obj4.sayName();
+
+
+
+        /**
+         * 
+         *  使用工厂方法创建的对象, 使用的构造函数都是Object
+         *      所以创造的对象都是Object这个类型,
+         *      就导致我们无法区分出多种不同类型的对象:
+         *          var obj4 = new Object();
+         *          var dog = new Object();
+         *      
+         *      想要的是：
+         *          var obj4 = new Person();
+         *          var dog = new Dog();  
+         * 
+        */
+        // 创建一个狗的对象
+        var dog = createDog("旺财", 3);
+
+        console.log(dog);
+        console.log(obj4);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

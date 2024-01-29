@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scope exercise</title>
+    <script type="text/javascript">
+        /**
+         * 
+         * 说出以下代码的执行结果
+         * 
+        */
+
+        var a = 123;
+        function func() {
+            alert(a); // output: 123
+        }
+
+        func();
+
+
+        //======================================================
+
+        var a = 123;
+
+        function func2() {
+            alert(a); // undefined
+            var a = 456;
+        }
+
+        func2();
+        alert(a); // 123
+
+
+
+        //======================================================
+        var a = 123;
+
+        function func3() {
+            alert(a); // 123
+            a = 456;
+        };
+
+        func3();
+        alert(a); // 456
+
+
+        //======================================================
+        var a = 123;
+
+        function func4(a) {
+            alert(a); // undefined
+
+            // 这边因为有parameter pass进来了, 所以这边的a是局部a, 而不是global a, 这边是把局部 a的值改成了456
+            a = 456;
+        };
+
+        func4();
+        alert(a); // 123
+
+
+        //======================================================
+        var a = 123;
+
+        function func5(a) {
+            alert(a); // 123
+            a = 456;
+        };
+
+        func5(123);
+        alert(a); // 123
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

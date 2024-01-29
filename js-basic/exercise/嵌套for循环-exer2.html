@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌套for循环练习2</title>
+    <script type="text/javascript">
+        /**
+         * 
+         * 
+         * 打印1-100之间所有的质数
+         * 
+        */
+
+        
+
+        // 打印2-100之间所有的数
+        for (let i = 2; i <= 100; i++) {
+            let flag = true;
+            
+            // 获取到2-i之间的所有的数
+            for (let j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    flag = false;
+                }
+            }
+
+            // 如果是质数则输出
+            if (flag) {
+                console.log(i + "是质数");
+            } else {
+                console.log(i + "不是质数");
+            }
+
+        }
+
+
+    </script>
+    <style type="text/css">
+        span {
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

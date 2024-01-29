@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+    <script type="text/javascript">
+        /**
+         * 
+         *  Date
+         *  - 在JS中使用Date对象来表示一个时间
+         * 
+        */
+
+
+        // 创建一个Date对象
+        // 如果直接使用构造函数创建一个Date对象, 则会封装为当前代码执行的时间
+        var d = new Date();
+
+        console.log(d); // Fri Jan 12 2024 12:07:41 GMT+0800 (Malaysia Time)
+
+
+
+        // 创建一个指定的时间对象
+        // 需要在构造函数中传递一个表示时间的字符串作为参数
+        // 日期的格式： 月份/日/年 时:分:秒
+        var d2 = new Date("12/03/2016 11:10:30");
+
+        console.log(d2); // Sat Dec 03 2016 11:10:30 GMT+0800 (Malaysia Time)
+
+
+        /**
+         * 
+         *  getDate()
+         *  - 获取当前日期对象是几日
+         * 
+        */
+
+        var date = d2.getDate();
+        console.log(date); // 3
+
+
+        /**
+         * 
+         *  getDay()
+         *  - 获取当前日期对象是周几
+         *  - 会返回一个0-6的值
+         *      0 表示周日
+         *      1 表示周一
+         *      2 表示周二
+         *      以此类推
+         * 
+        */
+
+        var day = d2.getDay();
+        // 代表了 12/03/2016 是星期六
+        console.log(day); // 6 
+
+
+
+
+        /**
+         * 
+         *  getMonth()
+         *  d2 = new Date("12/03/2016 11:10:30");
+         *  - 获取当前时间对象的月份
+         *  - 会返回一个0-11的值
+         *        0 表示1月
+         *        1 表示2月
+         *        2 表示3月
+         *       11 表示12月
+         * 
+        */
+        var month = d2.getMonth();
+
+        console.log(month); // 11
+        console.log(month + 1); // 12
+
+
+        /**
+         * 
+         *  getFullYear()
+         *  - 获取当日期对象的年份
+         * 
+         * 
+        */
+        var year = d2.getFullYear();
+        console.log(year);  // 2016
+
+
+
+        /**
+         * 
+         *  gteHours() - Get hour (0-23) 
+         *  getMinutes() - 	Get minute (0-59)
+         *  getSeconds() - 	Get second (0-59)
+         *  getMilliseconds() - Get millisecond (0-999)
+         * 
+         * 
+         * 
+        */
+
+
+
+
+
+
+        /**
+         * 
+         *  getTime()
+         *  - 获取当前日期对象的时间戳
+         *  - 时间戳, 指的是从格林威治标准时间的1970年1月1日, 0时0分0秒到当前日期所花费的秒数(1秒 = 1000毫秒)
+         *  - 计算机低层在保存时间时使用都是时间戳
+        */
+
+        var time = d2.getTime();
+        console.log(time); // 1480734630000
+
+
+        // "1/1/1970 0:0:0" 是马来西亚时间, 跟格林威治标准时间有时差
+        var d3 = new Date("1/1/1970 0:0:0");
+        var time = d3.getTime();
+        console.log(time); // -27000000
+
+
+
+        /**
+         * 
+         *  可以利用时间戳来测试代码的执行的性能
+         * 
+         *  Date.now() 获取的是当前的时间戳
+         *  如果是代码139行执行Date.now(),就获取代码139行执行时的时间
+         * 
+         * 
+        */
+
+        // 获取当前的时间戳
+        time = Date.now();
+        console.log(time); // 1705050332078
+
+
+        var start = Date.now();
+
+        for (let i = 0; i < 100; i++) {
+            console.log(i);
+        }
+
+        var end = Date.now();
+
+
+        console.log("执行了：" + (end - start) + "毫秒"); // 1
+
+
+
+
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

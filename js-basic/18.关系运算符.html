@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logical Assignment Operators</title>
+    <script type="text/javascript">
+
+        /**
+         *  通过关系运算符可以比较两个值之间的大小关系，
+         *      如果关系成立它会返回true， 如果关系不成立则返回false
+         * 
+         * 
+         *  >  大于号
+         *     - 判断符号左侧的值是否大于右侧
+         *     - 如果关系成立， 返回true， 如果关系不成立则返回false 
+         * 
+         * 
+         *  >=  大于等于号
+         *     - 判断符号左侧的值是否大于或等于右侧
+         *     - 如果关系成立， 返回true， 如果关系不成立则返回false 
+         * 
+         * 
+         *  <  小于号
+         *     - 判断符号左侧的值是否小于右侧
+         *     - 如果关系成立， 返回true， 如果关系不成立则返回false 
+         * 
+         * 
+         *  <=  小于等于号
+         *     - 判断符号左侧的值是否小于或等于右侧
+         *     - 如果关系成立， 返回true， 如果关系不成立则返回false 
+         * 
+         * 
+         *  非布尔值的情况（非数值）
+         *     - 对于非数值进行比较时，会将其转换为数字然后再比较
+         *     - 任何值和NaN比较都是false
+         *     - 如果符号两侧的值都是字符串(String)时, 不会将其转换为数字进行比较， 而会分别比较字符串中字符的unicode编码
+         * 
+        */
+
+
+        console.log(5 > 10);  // output: false
+        console.log(5 > 5);  // output: false
+        console.log(5 > 4);  // output: true
+
+
+        console.log(5 >= 5);  // output: true
+        console.log(5 >= 4);  // output: true
+
+
+
+        console.log(5 < 4);  // output: false
+
+        console.log(4 <= 4);  // output: true
+
+
+
+        // true转换成 1 了
+        console.log(1 > true); // output: false
+        console.log(1 >= true); // output: true
+
+        console.log(1 > "0"); // output: true
+
+
+        // null转换成 0了
+        console.log(10 > null); // output: true
+
+        // hello转换成 NaN了
+        console.log(10 > "hello"); // output: false
+        console.log(10 < "hello"); // output: false
+        console.log(10 <= "hello"); // output: false
+
+
+        console.log("1" < "5"); // output: true
+
+        console.log(11 < "5"); // output: false
+
+        // !!!****** 比较字符串中字符的unicode编码
+        // 先拿1的编码(0031)和5(0035)的编码比，发现1的编码小过5的编码， 后面的数字就不比较了
+        // 如果比较的两个字符串型的数字， 可能会得到不可预期的结果
+        // 在比较两个字符串型的数字时， 一定一定一定要转型
+        console.log("11" < "5"); // output: true
+
+        console.log("11" < +"5"); // output: false
+
+        console.log("a" > "b"); // output: false
+        console.log("a" < "b"); // output: true
+
+
+        // 比较字符编码时, 是一位一位进行比较
+        // 比较a的时候， 发现a比b小， 后面就不比了
+        console.log("abc" < "b"); // output: true
+
+        console.log("bbc" < "b"); // output: false
+
+        console.log("cbc" < "b"); // output: false
+
+        // 可以借用它来对英文进行排序
+        // *** 第一个字母"a"和"b"比较， 第二个字母"b"和"c"比较, 以此类推
+        console.log("abc" > "bcd"); // output: false
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

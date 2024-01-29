@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Type</title>
+    <script type="text/javascript">
+        /*
+            JavaScript has 8 Datatypes
+                1. String
+                2. Number
+                3. Bigint
+                4. Boolean
+                5. Undefined
+                6. Null
+                7. Symbol
+                8. Object
+
+            The object data type can contain:
+                1. An object
+                2. An array
+                3. A date
+        */
+
+        // datatype is the type of literal 
+
+
+        /////////////////////////////////////////////////////////////////////
+        // String
+        // Single quote inside double quotes:
+        let answer1 = "hello";
+
+        // Single quotes inside double quotes:
+        let answer2 = "He is called 'John'";
+
+        // Double quotes inside single quotes:
+        let answer3 = 'He is called "John"';
+
+        // wrong syntax
+        // let answer4 = "He say:"abc"";
+
+        // 在string中我们可以使用\作为转义字符，当表示特殊符号时， 可以使用\进行转义
+        // \" 表示 "
+        // \' 表示 '
+        // \n 表示换行
+        // \\ 表示 \
+        let answer4 = "He say:\"abc\"";
+
+
+
+
+        /////////////////////////////////////////////////////////////////////
+        /*
+            Most programming languages have many number types:
+
+            Whole numbers (integers):
+            byte (8-bit), short (16-bit), int (32-bit), long (64-bit)
+
+            Real numbers (floating-point):
+            float (32-bit), double (64-bit).
+
+            Javascript numbers are always one type:
+            double (64-bit floating point).
+        */
+        // Number
+        // With decimals:
+        let x1 = 50.00;
+
+        // Without decimals:
+        let x2 = 50;
+
+
+        /* 
+            如果使用Number表示超过了最大值， 则会返回一个 
+                Inifinity 表示正无穷
+                - Infinity 表示负无穷
+            
+            使用typeof inifinity 也会返回number
+        */
+
+        let x3 = -Number.MAX_VALUE * Number.MAX_VALUE;
+        console.log(x3); // output: -Infinity
+        console.log(typeof x3); // output: number
+
+        x3 = "abc" * "bcd";
+        console.log(x3); // output: NaN, 表示： Not A Number
+        console.log(typeof x3); // output: number, NaN also a number type
+
+
+        let x4 = Number.MIN_VALUE; // 大于0的最小值
+        console.log(x4); // output: 5e-324
+
+
+        /*  
+            如果使用JS进行浮点数， 可能得到一个不精确的结果,
+            所以千万不要使用JS进行对精确度要求比较高的运算
+            让服务器算
+        */
+        let x5  = 0.1 + 0.2; 
+        console.log(x5); //output: 0.30000000000000004
+
+
+
+        /////////////////////////////////////////////////////////////////////
+        // Bigint
+        /*
+            All JavaScript numbers are stored in a a 64-bit floating-point format.
+
+            JavaScript BigInt is a new datatype (ES2020) that can be used to store integer values that are too big to be represented by a normal JavaScript Number.
+        */
+        let x = BigInt("112323456789012345678901234567890");
+
+
+
+        /////////////////////////////////////////////////////////////////////
+        /*
+            only have true or false value, used in conditional testing.
+        */
+        // Boolean
+        let a = 5;
+        let b = 5;
+        let c = 6;
+        console.log(a == b)       // Returns true
+        console.log(a == c)       // Returns false
+
+
+
+        /////////////////////////////////////////////////////////////////////
+        // Arrays, use [] 
+        const cars = ["Perodua", "Honda", "BMW"];
+
+
+
+        /////////////////////////////////////////////////////////////////////
+        // Object, use {}
+        const person = {firstName:"John", lastName:"David", age:30, eyeColor:"black"};
+
+
+
+        /////////////////////////////////////////////////////////////////////
+        // use typeof to check the datatype
+        typeof "John"         // Returns "string"
+        typeof (3 + 4)        // Returns "number"
+
+
+        
+        /////////////////////////////////////////////////////////////////////
+        /* 
+            only have one value -> undefined,
+            当声明一个变量的时候， 但是并不给变量赋值是， 它的值就是undefined，
+            undefined means a variable has been declared but has not yet been assigned a value
+        */
+        // Undefined (未定义)
+        let car;    // Value is undefined, type is undefined
+        console.log(car); // output: undefined
+
+        car = undefined;    // Value is undefined, type is undefined
+
+
+
+
+        /////////////////////////////////////////////////////////////////////
+        // Null （空值）
+
+        /* 
+            only have one value -> null,
+            null专门用来表示一个为空的对象，
+            null is an assignment value. It can be assigned to a variable as a representation of no value 
+        */
+
+        var a1 = null;
+
+        console.log(typeof a1);  // output: object
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

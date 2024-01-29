@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning</title>
+
+    <!-- 
+        can write the js code in the external js file, then call it through the script tag, 
+        allow multiple web page to use the external js file, also can use the 浏览器的缓存机制，
+        推荐使用的方式
+    -->
+    <!-- 
+        script 标签一旦用于引入外部文件， 就不能编写代码， 即使编写了浏览器也会忽略，
+        如果需要则可以再创建一个新的script标签用于编写内部代码
+    -->
+    <script type="text/javascript" src="script.js"></script>
+
+    <!-- can write the js code in the script tag-->
+    <!-- <script type="text/javascript">
+        alert('js code in the script tag');
+    </script> -->
+</head>
+<body>
+    <!--
+        虽然可以写在标签的属性中，但是他们属于结构与行为耦合， 不方便维护， 不推荐使用
+    -->
+
+    <!-- 
+        can write the JS code in the html element tag's onclick attribute
+        the JS code execute when click the button
+    -->
+    <button onclick="alert('clicked');">Click Me</button>
+
+    <!--
+        can write the JS code in the href attribute of <a></a>,
+        the JS code execute when click the <a></a>
+    -->
+    <a href="javascript:alert('clicked link');">Click Link</a>
+</body>
+</html>

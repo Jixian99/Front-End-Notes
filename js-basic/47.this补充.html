@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this补充</title>
+    <script type="text/javascript">
+
+
+        // 创建一个name属性
+        var name = "全局";
+
+
+        //创建一个func()函数
+        function func() {
+            // 这边的name显示的是global scope里面的name， 即var name = "全局";
+            console.log(name); // 全局
+
+            // 如果希望调用obj.sayName()时可以输出obj的名字，需要用this改变指向
+            // 如果希望调用obj2.sayName()时可以输出obj2的名字，需要用this改变指向
+            console.log(this.name);
+
+        };
+
+
+        // 创建两个对象
+        var obj = {
+            name: "孙悟空",
+            sayName: func
+        };
+
+        var obj2 = {
+            name: "沙和尚",
+            sayName: func
+        };
+
+        func();
+
+        // 我们希望调用obj.sayName()时可以输出obj的名字
+        obj.sayName();
+
+        // 我们希望调用obj2.sayName()时可以输出obj2的名字
+        obj2.sayName();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <script type="text/javascript">
+
+        /**
+         * 
+         * 
+         *      Location
+         *         - 该对象中封装了浏览器的地址栏信息
+         * 
+        */
+        window.onload = function () {
+
+            // 获取按钮对象
+            var btn01 = document.getElementById("btn01");
+
+            btn01.onclick = function () {
+
+                // 如果直接打印location, 则可以获取到地址栏的信息(当前页面的完整路径)
+
+                /**
+                 * 
+                 *  如果直接将location属性修改为一个完整的路径, 或相对路径
+                 *      则我们页面会自动跳转到该路径, 并且会生成相应的历史纪录
+                 * 
+                 * 
+                */
+                // location = "https://www.w3schools.com/"
+                // location = "92.BOM.html";
+
+                /**
+                 * 
+                 *  assign()
+                 *  - 用来跳转到其他的页面, 作用和直接修改location一样
+                 * 
+                 * 
+                */
+                location.assign("https://www.w3schools.com/");
+
+
+                /**
+                 * 
+                 *  reload()
+                 *  - 用于重新加载当前页面, 作用和刷新按钮一样
+                 * 
+                */
+                location.reload();
+
+
+                /**
+                 * 
+                 *  replace()
+                 *  - 可以使用一个新的页面替换当前页面, 调用完毕也会跳转页面
+                 *  - ！！！ 不会生成历史记录, 不能使用回退按钮回退
+                 * 
+                */
+                location.replace("92.BOM.html");
+            }
+        };
+
+
+
+
+    </script>
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+    <button id="btn01">click me</button>
+
+
+    <h1>Location</h1>
+    <input type="text" />
+    <a href="92.BOM.html">去BOM.html</a>
+</body>
+
+</html>

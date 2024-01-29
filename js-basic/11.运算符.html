@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operators</title>
+</head>
+<script type="text/javascript">
+    /*
+        运算符也叫操作符
+            - 通过运算符可以对一个或多个值进行运算, 并获取运算结果
+            - 比如: typeof就是运算符， 可以来获得一个值的类型， 它会将该值的类型以字符串的形式返回
+                    number string boolean undefined object
+            - 运算符都是会返回结果的
+
+        算数运算符 (Arithmetic Operators are used to perform arithmetic on numbers)
+            - (除了字符串的加法) 当对非Number类型的值进行运算时， 会将这些值转换为Number然后再运算  
+            - 所有的运算符都不改变原始变量而是返回进行运算后的结果
+            - 任何值和NaN做运算都得NaN
+            - 任何值做 - * / 运算时都会自动转换为Number
+
+            Operator	Description
+            ==========================
+            +	        Addition：
+                        - 如果对两个字符串进行加法运算， 则会做拼串， 会将两个字符串拼接为一个字符串并返回
+                        - 任何的值和字符串做加法运算，都会先转换为字符串， 然后再和字符串做拼串的操作
+
+            -	        Subtraction:
+                        - 可以对两个值进行减法运算， 并将结果返回
+
+            *	        Multiplication:
+                        - 可以对两个值进行乘法运算
+
+            **	        Exponentiation (ES2016)
+            /	        Division
+                        - 可以对两个值进行除法运算
+
+            %	        Modulus (Division Remainder)
+                        -  取模运算（取余数）
+
+            ++	        Increment
+            --	        Decrement
+            
+    */
+
+    var a = 123;
+
+    var result = typeof a;
+
+    console.log(result); // output: number
+    console.log(typeof a); // output: number
+    console.log(typeof result); // output: string
+
+    a + 1; // 不会影响a的值
+
+    result = a + 1; // output: 124
+    result = 456 + 789; // output: 1245
+    result = true + 1; // output: 2
+    result = true + false; // output: 1
+    result = 2 + null; // output: 2
+    result = 2 + NaN; // output: NaN
+    result = "123" + "456"; // output: "123456"
+    result = 123 + "1" // output: 1231
+    result = true + "hello" // output: truehello
+
+    console.log(result);
+
+    // 任何值和字符串相加都会转换成字符串， 并做拼串操作
+    var c = 123;
+
+    // 我们可以利用这一特点， 来将一个任意的数据类型转换为String， 我们只需要为任意的数据类型加一个""， 即可将其转换为String
+    // 这是一种隐式类型转换， 由浏览器自动完成，实际上它也是调用String()函数。
+    // c = c + "convert c to string";
+    c = c + "";
+
+    // c = null;
+    // c = c + "";
+
+    console.log(c);
+    console.log(typeof c);
+
+    result = 1 + 2 + "3"; // output: 33
+    result = "1" + 2 + 3; // output: 123
+
+    result = 100 - 5; // output: 95
+    result = 100 - true; // output: 99
+    result = 100 - "1"; // output: 99
+    result = true - "hello"; // output: NaN
+
+
+    result = 2 * 2; // output: 4
+    result = 2 * "8"; // output: 16
+    result = 2 * undefined; // output: NaN
+    result = 2 * null; // output: 0
+
+
+    result = 4 / 2; // output: 2
+    result = 3 / 2; // output: 1.5
+    result = 0 / 0; // output: NaN
+    result = 1 / null;// output: Infinity
+    console.log(result);
+
+
+    var d = "123";
+
+    /*
+        - 我们可以利用这一特点做隐式的类型转换，
+          可以通过为一个值 -0， *1， /1 来将其转换为Number,
+          +0 会导致拼串
+          原理和Number()函数一样， 使用起来更加简单
+
+        - 任何值做 - * / 运算时都会自动转换为Number
+    */
+    d = d * 1;
+
+    console.log(d);
+    console.log(typeof d);
+
+
+    result = 9 % 3; // output: 0
+    result = 9 % 4; // output: 1
+    console.log(result);
+
+</script>
+
+<body>
+
+</body>
+
+</html> 
