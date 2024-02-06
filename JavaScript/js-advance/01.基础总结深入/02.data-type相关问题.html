@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>想关问题</title>
+
+    <script type="text/javascript">
+
+        /**
+         * 
+         *  1. undefined与null的区别?
+         *      - undefined代表定义未赋值
+         *      - null定义并赋值了, 只是值为null
+         * 
+         * 
+        */
+
+        var a;
+        console.log(a);  // undefined
+        a = null;
+        console.log(a); // null
+
+
+
+
+        /**
+         * 
+         *  2. 什么时候给变量赋值为null呢 ?
+         *      - 初始赋值, 表明将要赋值为对象, 可以用做约定俗成的占位符
+         *      - 结束前, 让对象成为垃圾对象(被垃圾回收器回收)
+         * 
+         * 
+        */
+
+        //起始,可以用做约定俗成的占位符
+        var b = null;  // 初始赋值为null, 表明将要赋值为对象
+        //确定对象就赋值
+        b = ['atguigu', 12];
+        //最后在不使用的时候,将其引用置空,就可以释放b这个对象占用的内存      ---当没有引用指向它的对象称为垃圾对象
+        b = null; // 让b指向的对象成为垃圾对象(被垃圾回收器回收)
+
+
+
+
+
+        /**
+         * 
+         * 
+         *  3. 严格区别变量类型与数据类型 ?
+         *      - 数据的类型
+         *          ~ 基本类型
+         *          ~ 对象类型
+         *      - 变量的类型(变量内存值的类型)
+         *          ~ 基本类型: 保存就是基本类型的数据
+         *          ~ 引用类型: 保存的是地址值(对象类型)
+         * 
+        */
+
+        var c = {}; // 这边给c的内存值是obj的地址
+
+
+        var c = function () { };
+
+        console.log(typeof c);  // function
+
+
+
+
+        /**
+         * 
+         *  4. 符串对比*>、<以及charCodeAt()*方法
+         *      - Javascript字符串在进行大于(小于)比较时，
+         *        会根据第一个不同的字符的ascii值码进行比较，
+         *        当数字(number)与字符串(string)进行比较大小时，
+         *        会强制的将数字(number)转换成字符串(string)然后再进行比较
+         * 
+         * 
+        */
+
+        (function () {
+            console.log('13' > '3'); // 输出：false
+            console.log(5 > '6');  // 输出： false
+            console.log('d' > 'ABDC') // 输出： true
+            console.log(19 > 'ssf') // 输出 false
+            console.log('A' > 'abcdef') // 输出 false
+        })();
+
+        // 手动转换为ascii后相减, 用正负数表示大小
+        // sorter = {(a: string, b: string)=> a.charCodeAt() - b.charCodeAt()}
+
+        //==================================================================================================
+
+        // 实例： 实例对象
+        // 类型： 类型对象
+
+        function Person(name, age) { // 构造函数  类型
+            this.name = name;
+            this.age = age;
+        }
+
+        var p = new Person('Tom', 12); // p是根据类型创建的实例对象
+
+    </script>
+</head>
+
+<body>
+
+
+
+</body>
+
+</html>

@@ -82,7 +82,7 @@
             // func2 现在自己的作用域里面找a, 如果没有就会往上一级找a
             function func2() {
                 console.log(a);  //"variable inside the function"
-                console.log(window.a);
+                console.log(window.a); // 10
             };
 
             func2();

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包的作用</title>
+
+    <script type="text/javascript">
+
+
+        /**
+         * 
+         *  1. 产生: 在嵌套内部函数定义执行完时就产生了(不是在调用)
+         *  2. 死亡: 在嵌套的内部函数成为垃圾对象时
+         *      - 即没有人指向它时死亡,通常置为[null],当然指向其他也行,但不安全(容易污染变量)
+         *  
+         * 
+         * 
+        */
+
+        //闭包的生命周期
+        function fn1() {
+            //此时闭包就已经产生了(函数提升,实际上[fn2]提升到了第一行, 内部函数对象已经创建了)
+            var a = 2;
+            function fn2() { //如果是用表达式[let fn2=function(){}],那么在这行才会产生闭包, 因为是变量提升
+                a++;
+                console.log(a);
+            }
+            return fn2;
+        }
+        var f = fn1();
+        f(); // 3
+        f(); // 4
+        f = null; //闭包死亡(包含闭包的函数对象成为垃圾对象)
+    </script>
+</head>
+
+<body>
+
+
+
+
+</body>
+
+</html>

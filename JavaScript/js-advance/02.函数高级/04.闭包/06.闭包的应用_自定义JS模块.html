@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包的应用_自定义JS模块</title>
+
+    <script type="text/javascript" src="myModule.js"></script>
+    <script type="text/javascript" src="myModule2.js"></script>
+    <script type="text/javascript">
+
+        /**
+         *
+         *  闭包的应用 : 定义JS模块
+         *  - 具有特定功能的js文件
+         *  - 将所有的数据和功能都封装在一个函数内部(私有的)
+         *  - 只向外暴露一个包信n个方法的对象或函数
+         *  - 模块的使用者, 只需要通过模块暴露的对象调用方法来实现对应的功能
+         *
+        */
+        // 1. 模块定义: 参考myModule.js 和 myModule2.js
+
+
+        // 2. 模块调用
+        //myModule.js
+        var fn = myModule();
+
+        fn.doSomething(); // doSomething() MY ATGUIGU
+
+        fn.doOtherthing(); // doOtherthing() my atguigu
+
+        //=======================================================
+
+
+        //myModule2.js
+        myModule2.doSomething(); // doSomething() MY ATGUIGU
+        myModule2.doOtherthing(); // doOtherthing() my atguigu
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

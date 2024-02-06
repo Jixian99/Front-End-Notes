@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链</title>
+
+    <script type="text/javascript">
+
+        /**
+         * 
+         *  1. 原型链 (image -> folder -> 原型链)
+         *      - 访问一个对象的属性时，
+         *          ~ 先在自身属性中查找，找到返回
+         *          ~ 如果没有, 再沿着[__ proto __]这条链向上查找, 找到返回
+         *          ~ 如果最终没找到, 返回undefined
+         *      - 别名: 隐式原型链
+         *      - 作用: 查找对象的属性(方法)
+         * 
+         * 
+         *  2. 构造函数/原型/实例对象的关系(图解) - 3张图片
+         *      
+         * 
+        */
+
+
+        function Fn() {
+            this.test1 = function () {
+                console.log('test1()');
+            };
+        };
+
+        Fn.prototype.test2 = function () {
+            console.log('test2()');
+        };
+
+        Fn.test3 = function () {
+            console.log("test");
+        };
+
+
+        fn = new Fn();
+        fn.test1(); // test1()
+        fn.test2(); // test2()
+
+        console.log(fn.toString()); // [object Object]
+
+        console.log(fn.test3); // undefined
+        // fn.test3(); // Uncaught TypeError: fn.test3 is not a function
+
+        console.log(fn.hasOwnProperty("test1")); // true
+        console.log(Fn.hasOwnProperty("test1")); // false
+
+
+        /**
+         *
+         *  1. 函数的显式原型指向的对象默认是空Object实例对象(但Object不满足)
+         *
+         *
+         *
+         */
+        console.log(Fn.prototype instanceof Object); // true
+        console.log(Object.prototype instanceof Object); // false
+        console.log(Object instanceof Object); // true
+        console.log(Function.prototype instanceof Object); // true
+
+        /**
+         *
+         *  2. 所有函数都是Function的实例(包含Function 本身)
+         *
+         *
+        */
+        console.log(Function.prototype === Function.__proto__); // true
+        console.log(Function instanceof Function); // true
+        console.log(Object instanceof Function); // true
+        console.log(Function instanceof Object); // true
+
+        //=========================================================
+
+
+        // 参考 (image -> folder -> 构造函数/原型/实例对象的关系(图解))
+        var o1 = new Object();
+        var o2 = {};
+
+
+        // ========================================================
+
+        // 参考 (image -> folder -> 构造函数/原型/实例对象的关系(图解)-2
+        function Foo() { };
+
+        // ！！！注意这边new 的是Function()
+        var Foo = new Function(); // ps:所有函数的[__ proto __]都是一样的, 都指向Function.prototype
+
+        /**
+         *
+         *   所有函数都是
+         *     Function = new Function()
+         *
+        */
+
+        console.log(typeof Foo); // function
+
+        console.log(Foo.prototype.__proto__ === Function.prototype); // false
+        console.log(Foo.__proto__ === Function.__proto__); // true
+        console.log(Foo.__proto__ === Function.prototype); // true
+
+
+        // 根据图片, Function.prototype 和 Function.__proto__ 指向的是同一个地方, 即Function.prototype
+        // Function.prototype.constructor 和 Function.__proto__ 指向的不是同一个地方
+        console.log(Function.prototype === Function.__proto__); // true
+        console.log(Function.prototype.constructor === Function); // true
+        console.log(Function.__proto__.constructor === Function); // true
+
+
+
+        console.log(Function.prototype.__proto__ === Object.prototype); // true
+        console.log(Function.__proto__.__proto__ === Object.prototype); // true
+
+
+
+        console.log(Object.__proto__); // ƒ () { [native code] }
+        console.log(Function.prototype); // ƒ () { [native code] }
+        console.log(Function.prototype === Object.__proto__); // true
+        console.log(Object instanceof Function); // true
+        console.log(Function instanceof Object); // true
+
+        console.log(Object.prototype === Function.__proto__); // false
+        console.log(Function.prototype === Object.__proto__); // true
+
+
+        /**
+         *
+         *  当 test = fucntion (){}; 时, 类型是function
+         *  当 test = new fucntion Per(){}; 时, 类型是object
+         *  只有用new时, 才会变成object
+         *
+         *
+        */
+        const test = new function () { };
+        console.log(typeof test);
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+
+
+
+</body>
+
+</html>

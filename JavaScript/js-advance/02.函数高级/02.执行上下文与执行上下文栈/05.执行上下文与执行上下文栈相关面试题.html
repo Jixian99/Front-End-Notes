@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>执行上下文与执行上下文栈相关面试题</title>
+
+    <script type="text/javascript">
+
+        /**
+         *  相关面试题
+         * 
+         *  函数提升优先级高于变量提升,且不会被变量声明覆盖,但是会被变量赋值覆盖
+         *  而且存在同名函数与同名变量时，优先执行函数。
+         *  
+         * 
+         * 
+        */
+
+        /*
+        测试题1: 
+
+        */
+        // 函数提升优先级比变量提升要高，且在编译阶段不会被变量声明覆盖,JS引擎会选择跳过同名的变量,不做创建和初始化。
+        function a() { };
+        var a; // 变量声明
+
+        console.log(typeof a); // 'function'
+
+        /**
+         * 
+         *  相当于
+         *  function a(){};  // 函数提升
+         *  var a;  // 变量提升
+         * 
+         *  此时的a并没有赋值, 函数提升优先级比变量提升要高所以a是function
+         * 
+         * 
+        */
+        // ============================================================
+
+        /*
+        测试题2:
+        */
+        if (!(b in window)) {
+            var b = 1;
+        }
+        console.log(b); // undefined
+
+        /**
+         * 
+         *  相当于
+         *  var b; // 变量提升
+         * 
+         *  if (!(b in window)) {
+         *    b = 1;
+         *  }
+         * 
+         * 
+        */
+        // ============================================================
+
+
+
+
+        /*
+        测试题3:
+        */
+        console.log(c);  // function c(c){...}
+        var c = 1; // 变量赋值
+        function c(c) {
+            console.log(c);
+            var c = 3; //与此行无关
+        };
+        // c(2) // 报错  c is not a function
+
+
+        /**
+         * 
+         *  相当于
+         * 
+         *  function c(c) {
+         *      console.log(c);
+         *      var c = 3; //与此行无关
+         *  }
+         * 
+         * 
+         *  var c;
+         * 
+         *  c = 1;
+         * 
+         *  c(); // 此时的c已经被赋值为1, 所以会报错
+         * 
+         * 
+        */
+
+        //====================================================
+
+
+
+        a();
+
+
+        function a() {
+            console.log(1);
+        };
+
+
+        function a() {
+            console.log(2);
+        };
+
+
+
+        // print out 2, 在两个同名的函数出现时, 先声明的会被后声明的覆盖
+    </script>
+
+</head>
+
+<body>
+
+
+
+
+</body>
+
+</html>

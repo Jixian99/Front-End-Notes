@@ -14,6 +14,7 @@
 
         var a = 123;
         function func() {
+            // 这边的alert(a); 在func()的作用域里面没有找到a, 所以会往上找, 找到global scope 里面的 var a = 123;
             alert(a); // output: 123
         }
 
@@ -25,6 +26,18 @@
         var a = 123;
 
         function func2() {
+            // 这边的alert(a); 在func()的作用域里面有找到a
+            /**
+             * 
+             *  用var 声明变量可以提前声明变量:
+             *  var a = 456;  等于
+             * 
+             *  var a; // a = undefined
+             * 
+             *  a = 456; // a = 456;
+             * 
+             * 
+            */
             alert(a); // undefined
             var a = 456;
         }

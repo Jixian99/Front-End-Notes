@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>举个例子分析词法作用域</title>
+
+    <script type="text/javascript">
+
+
+        /**
+         * 
+         *  这里想说明，我们在函数执行上下文中有变量，在全局执行上下文中有变量。
+         *  JavaScript 的一个复杂之处在于它如何查找变量，如果在函数执行上下文中找不到变量，它将在调用上下文中寻找它，
+         *  如果在它的调用上下文中没有找到，就一直往上一级，直到它在全局执行上下文中查找为止。
+         *  (如果最后找不到，它就是 undefined)。
+         * 
+         * 
+        */
+
+
+        /**
+         * 
+         *  下面列出向个步骤来解释一下：
+         *  1. 在全局执行上下文中声明一个新的变量val1，并将其赋值为 2。
+         *  2. 行 2 - 5，声明一个新的变量 multiplyThis，并给它分配一个函数定义。
+         *  3. 第六行，声明一个在全局执行上下文 multiplied 新变量。
+         *  4. 从全局执行上下文内存中查找变量multiplyThis，并将其作为函数执行，传递数字 6 作为参数。
+         *      - 新函数调用(创建新执行上下文），创建一个新的 multiplyThis 函数执行上下文。
+         *      - 在 multiplyThis 执行上下文中，声明一个变量 n 并将其赋值为 6 -- >声明后才会进入函数体内部执行
+         * 
+         *  5. 执行函数回到第 3 行。
+         *      - 在multiplyThis执行上下文中，声明一个变量ret。
+         *      - 继续第 3 行。对两个操作数 n 和 val1 进行乘法运算.在multiplyThis执行上下文中查找变量 n。
+         *          ~ 我们在步骤 6 中声明了它,它的内容是数字 6。在multiplyThis执行上下文中查找变量val1。
+         *          ~ multiplyThis执行上下文没有一个标记为 val1 的变量。
+         *            我们向调用上下文查找，调用上下文是全局执行上下文，在全局执行上下文中寻找 [val1]。
+         *            哦，是的、在那儿，它在步骤 1 中定义，数值是 2。
+         *      - 继续第 3 行。将两个操作数相乘并将其赋值给ret变量，6 * 2 = 12，ret 现在值为 12。
+         *  
+         *  6. 返回ret变量，销毁multiplyThis执行上下文及其变量 ret 和 n 。变量 val1 没有被销毁，因为它是全局执行上下文的一部分。
+         *  7. 回到第 6 行。在调用上下文中，数字 12 赋值给 multiplied 的变量。
+         *  8. 最后在第 7 行，我们在控制台中打印 multiplied 变量的值
+         *      
+         *  
+         *  在这个例子中，我们需要记住一个函数可以访问在它的调用上下文中定义的变量，这个就是词法作用域（Lexical scope）。
+         *  
+         * 
+        */
+
+
+
+        // 1: let val1 = 2;
+        // 2: function multiplyThis(n) {
+        // 3:   let ret = n * val1;
+        // 4:   return ret;
+        // 5: }
+        // 6: let multiplied = multiplyThis(6);
+        // 7: console.log('example of scope:', multiplied);
+
+
+        
+
+
+    </script>
+</head>
+
+<body>
+
+
+
+
+</body>
+
+</html>
