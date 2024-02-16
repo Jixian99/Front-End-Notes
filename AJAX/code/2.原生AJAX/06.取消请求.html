@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取消请求</title>
+</head>
+
+<body>
+    <button>Click to send request</button>
+    <button>Cancel request</button>
+
+    <script type="text/javascript">
+        // 在请求发出去后但是未响应完成时可以进行取消请求操作
+
+
+        // 获取button元素
+        const btns = document.getElementsByTagName("button");
+
+        let x = null;
+        btns[0].onclick = function(){
+            x = new XMLHttpRequest();
+            x.open("GET",'http://127.0.0.1:8000/delay');
+            x.send();
+        }
+
+        // abort
+        btns[1].onclick = function(){
+            x.abort();
+        }
+    </script>
+
+</body>
+
+</html>
