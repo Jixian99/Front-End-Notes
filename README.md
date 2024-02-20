@@ -12,6 +12,13 @@ some notes and practices about javascript learning
 ## AJAX Learning
 1. [AJAX](https://www.bilibili.com/video/BV1WC4y1b78y/?vd_source=7dddd0d50337976bd1023316178cf1a3)
    - refer AJAX folder
-   <!-- Start 06-02-2023 -->
+   <!-- Start 06-02-2024 -->
+   <!-- End 16-02-2024 -->
    
 
+## NodeJS Learning
+1. [Node.js](https://www.bilibili.com/video/BV1gM411W7ex/?p=2&spm_id_from=pageDriver&vd_source=7dddd0d50337976bd1023316178cf1a3)
+   - refer NodeJS folder
+   <!-- Start 17-02-2024 -->
+   <!-- End -2024 -->
+   
