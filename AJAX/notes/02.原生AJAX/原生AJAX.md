@@ -10,7 +10,7 @@
         //响应头     
         response.setHeader('Access-Control-Allow-Origin', '*');  // 允许跨域 
         response.setHeader('Access-Control-Allow-Headers', '*'); // 允许自定义响应头
-    }
+    });
 ```
 
 3. `ajax请求状态`:xhr.readyState
